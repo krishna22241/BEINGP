@@ -1,0 +1,584 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.circ1, .circ2, .circ3, .circ4, .circ5, .circ6 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(200px);
+    -webkit-filter: blur(200px);
+}
+
+.circ1 {
+    left: 50%;
+    height: 400px;
+    width: 400px;
+    background: radial-gradient(circle, red, transparent);
+}
+
+.circ2 {
+    left: 25%;
+    height: 800px;
+    width: 800px;
+    background: radial-gradient(circle, rgb(131, 198, 220), transparent);
+}
+
+.circ3 {
+    top: 60%;
+    left: 60%;
+    height: 400px;
+    width: 400px;
+    background: radial-gradient(circle, rgb(204, 77, 98), transparent);
+}
+
+.circ4 {
+    opacity: 70%;
+    top: 40%;
+    left: 8%;
+    height: 400px;
+    width: 400px;
+    background: radial-gradient(circle, red, transparent);
+}
+
+.circ5 {
+    top: 60%;
+    left: 70%;
+    height: 400px;
+    width: 400px;
+    background: radial-gradient(circle, rgb(0, 191, 255), transparent);
+}
+
+.circ6 {
+    top: 0%;
+    left: 0%;
+    height: 400px;
+    width: 400px;
+    background: radial-gradient(circle, rgb(87, 182, 241), transparent);
+}
+
+
+.nav {
+    height: 6vh;
+    width: 35%;
+    margin: auto;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    position: relative;
+    margin-top: 2%;
+    border-radius: 8px;
+    overflow: hidden;
+    color: white;
+    cursor: pointer;
+}
+
+h3 {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: 200;
+    padding: 2% 0;
+    margin: 0;
+}
+
+
+
+h3:hover {
+    background-color: white;
+    color: red;
+}
+
+
+h1 {
+    font-size: 800%;
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 5%;
+    /* left: 22%; */
+    background-image: linear-gradient(-225deg,
+            #fff800 0%,
+            rgb(239, 134, 59) 29%,
+            #ff1361 67%,
+            #fff800 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 6s linear infinite;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
+p {
+    left: 35%;
+    position: absolute;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+ok {
+    color: orangered;
+}
+
+.urgency { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.urgency h4{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 400px;
+    margin-top: 10%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: xx-large;
+    border-radius: 12px;
+    background-color: red;
+    color: white;
+    padding-top: 1.7%;
+    font-weight: bold;
+    cursor: pointer;
+}
+.urgency h4:hover {
+    background-color: white;
+    color: red;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+}
+
+a:visited:hover {
+    color: red;
+}
+
+a:focus {
+    color: black;
+}
+
+a:active {
+    color: orange;
+}
+
+
+
+.urgency:hover>table {
+    display: inherit;
+}
+
+.options {
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+    position: relative;
+    padding-left: 0px;
+    height: 60px;
+    padding-top: 6%;
+}
+
+.options h2 {
+    background-color: red;
+    color: white;
+    height: 60px;
+    width: 240px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 12px;
+    text-align: center;
+    padding-top: 5px;
+    padding-top: 13px;
+    cursor: pointer;
+}
+
+.options h2:hover {
+    background-color: white;
+    color: red;
+}
+
+
+/* TABLE CODE STARTS HERE */
+
+#signuptable {
+    border: none;
+}
+
+.main_table {
+    width: 800px;
+    position: absolute;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: whitesmoke;
+    top: 7%;
+    border-radius: 12px;
+    left: 27%;
+    box-shadow: 0px -11px 255px 8000px rgba(0, 0, 0, 0.45),
+        25px 0px 20px -20px rgba(0, 0, 0, 0.45),
+        0px 25px 20px -20px rgba(0, 0, 0, 0.45),
+        -25px 0px 20px -20px rgba(0, 0, 0, 0.45);
+
+
+}
+
+.main_table th {
+    height: 80px;
+    font-size: x-large;
+    color: green;
+    border-bottom: 5px green solid;
+}
+
+.main_table td {
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+}
+
+input {
+    width: 70%;
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1.2em;
+    background: transparent;
+    padding-left: 5%;
+    text-align: center;
+    padding-right: 5%;
+    border: 2px green solid;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+#TWO {
+    margin-left: 42px;
+
+}
+
+#THREE {
+    margin-left: 35px;
+}
+
+#ONE {
+    margin-left: 28px;
+}
+
+#FOUR {
+    margin-left: 22px;
+}
+
+input:invalid {
+    outline: red 2px solid;
+    border: none;
+}
+
+input:valid {
+    outline: green 2px solid;
+}
+
+select {
+    width: 70%;
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1.2em;
+    background: transparent;
+    padding-left: 5%;
+    text-align: center;
+    padding-right: 5%;
+    border: 2px green solid;
+    outline: 2px solid green;
+
+}
+
+select:hover {
+    border-color: greenyellow;
+}
+
+option {
+    text-align: center;
+    color: red;
+}
+
+option:hover {
+    background-color: red;
+    color: white;
+}
+
+#five {
+    width: 50%;
+    height: 80px;
+    font-weight: bolder;
+    background-color: green;
+    color: white;
+    padding-left: 0;
+    padding-left: 0px;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: large;
+}
+
+#five:hover {
+    background-color: greenyellow;
+    border-color: green;
+    color: green;
+}
+
+.fifth {
+    margin-left: 5px;
+
+}
+
+.okayy {
+    padding-left: 100px;
+}
+
+#NINE {
+    margin-left: 54px;
+}
+
+.con_error {
+    outline: 2px solid orangered;
+    background-color: red;
+    width: 528px;
+    height: 40px;
+    padding-top: 10px;
+    margin-left: 177px;
+    color: white;
+    margin-top: -5px;
+    border-radius: 0px 0px 12px 12px;
+}
+
+.con_error {
+    display: none;
+}
+
+/* ADMIN PANEL STARTS HERE */
+.red_nav {
+    height: 80px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.leftz {
+    width: 20%;
+    height: 730px;
+    background-color: #1e1e25;
+}
+
+.rightz {
+    width: 80%;
+}
+
+.leftz ul li {
+    color: white;
+    border-top: 1px solid white;
+    height: 60px;
+    font-size: larger;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+.leftz ul li:hover {
+    background-color: white;
+    color: #1e1e25;
+
+}
+
+.rightz .upps .bgroup h2 {
+    display: flex;
+    font-size: xx-large;
+    justify-content: center;
+    padding-top: 15px;
+
+}
+
+.bodf {
+    display: flex;
+}
+
+.rightz .upps .bgroup h2 img {
+    width: 20%;
+
+}
+
+.rightz .upps .bgroup {
+    margin-top: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    width: 18%;
+    height: 130px;
+    background-color: #1e1e25;
+    font-size: larger;
+    color: white;
+    border-radius: 12px;
+    ;
+
+}
+
+.smolpara {
+    font-size: larger;
+    padding-left: 10px;
+
+    text-align: center;
+}
+
+.upps {
+    margin-bottom: 40px;
+}
+
+.onef {
+    display: flex;
+
+    align-items: center;
+    margin-left: 100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.rightz .upps .bgroup:hover {
+    background-color: brown;
+    color: white;
+}
+
+.budy {
+    background-color: bisque;
+}
+
+.dowwns {
+    margin-top: 40px;
+    height: 100px;
+
+}
+
+.rightz .dowwns .bgroup h2 {
+    display: flex;
+    font-size: large;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    ;
+
+}
+
+.rightz .dowwns .bgroup h2 img {
+    width: 20%;
+
+}
+
+.rightz .dowwns .bgroup {
+    margin-top: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    width: 18%;
+    height: 130px;
+    background-color: #1e1e25;
+    font-size: larger;
+    color: white;
+    border-radius: 12px;
+    ;
+
+}
+
+.rightz .dowwns .bgroup:hover {
+    background-color: white;
+    color: #1e1e25;
+}
+
+.rightz .dowwns .bgroup .smolpara {
+    padding-left: 90px;
+    margin-top: 20px;
+}
+
+.leftz ul li:hover a {
+    color: #1e1e25;
+}
+
+.budy a:visited {
+    color: red;
+}
+
+/* donor table starts here */
+.donor_dets,
+th,
+td {
+    border: 1px solid black;
+    margin: auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+.donor_dets th {
+    background: #1e1e25;
+    color: white;
+
+
+}
+
+.donor_dets {
+    width: 80%;
+    margin-top: 40px;
+}
+
+.donor_dets th,
+td {
+    padding: 20px;
+    ;
+}
+
+.donor_dets span {
+    cursor: pointer;
+}
+
+.logs {
+    margin-left: 1300px;
+    margin-top: -25px;
+    background: bisque;
+    width: 10%;
+    height: 30px;
+    padding-top: 0px;
+    border-radius: 8px;
+    color: red;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    cursor: pointer;
+}

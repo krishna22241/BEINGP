@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>donor donation history</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* Add this style for the modified input field */
+      input[type="number"] {
+        width: 90px; /* Adjust the width as needed */
+        height: 40px; /* Adjust the height as needed */
+        border: 1px solid white;
+        outline: white;
+      }
+      .bgroup button {
+        margin: 0 auto;
+        display: block;
+        margin-top: 5px;
+        margin-left: 120px;
+      }
+
+      /* Add this style for the donation history table */
+      .donation-table {
+        width: 60%;
+        margin-left: 120px;
+        margin-top: 20px;
+        height: 200px;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+
+      .donation-table th,
+      .donation-table td {
+        border: 2px solid black;
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #1e1e25;
+        color: white;
+        width: 20%; /* Adjust the width as needed */
+      }
+
+      td {
+        height: 20px;
+        width: 20%; /* Adjust the width as needed */
+      }
+    </style>
+  </head>
+  <body class="budy">
+    <%=console.log(data)%>
+    <div class="red_nav">
+      <h2>BEING POSITIVE</h2>
+      <a
+      class="logs"
+      id="logoutButton"
+      href="/api/v1/signout"
+      style="background-color: rgb(191, 32, 32); color:white; padding:5px; margin-bottom:5px;"
+      >LOGOUT</a
+    ></div>
+    </div>
+    <div class="bodf">
+      <div class="leftz">
+        <ul>
+          <li><a href="/dhome">HOME</a></li>
+          <li><a href="/donateblood">DONATE BLOOD</a></li>
+          <li style="background: bisque; color: #1e1e25">
+            <a href="#">DONATION HISTORY</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Add this table on the right side -->
+      <table class="donation-table">
+        <thead>
+          <tr>
+            <th>UNIT</th>
+            <th>DISEASE</th>
+            <th>DATE</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+        <tbody>
+        <%  for(let i=0;i<data.length;i++){ %>
+          <tr>
+            <td><%=data[i].quantity%></td>
+            <td><%=data[i].Disease%></td>
+            <td><%=data[i].date%></td>
+            <td><%=data[i].status%></td>
+          </tr>
+          <%}%>
+         
+        </tbody>
+      </table>
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>donor home</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* Add this style for the modified input field */
+      input[type="number"] {
+        width: 90px; /* Adjust the width as needed */
+        height: 40px; /* Adjust the height as needed */
+        border: 1px solid white;
+        outline: white;
+      }
+      .bgroup button {
+        margin: 0 auto;
+        display: block;
+        margin-top: 5px;
+        margin-left: 120px;
+      }
+    </style>
+  </head>
+  <body class="budy">
+    <div class="red_nav">
+      <h2>BEING POSITIVE</h2>
+      <a
+      class="logs"
+      id="logoutButton"
+      href="/api/v1/signout"
+      style="background-color: rgb(191, 32, 32); color:white; padding:5px; margin-bottom:5px;"
+      >LOGOUT</a
+    ></div>
+    </div>
+    <div class="bodf">
+      <div class="leftz">
+        <ul>
+          <li style="background: bisque; color: #1e1e25">
+            <a href="#">HOME</a>
+          </li>
+          <li><a href="/donateblood">DONATE BLOOD</a></li>
+          <li><a href="/donorHistory">DONATION HISTORY</a></li>
+        </ul>
+      </div>
+      <div class="rightz">
+        <div class="dowwns">
+          <div class="onef">
+            <div class="bgroup" id="totalDonorsCount">
+              <h2>REQUEST MADE</h2>
+              <z class="smolpara"><%=totalCount %></z>
+            </div>
+            <div class="bgroup" id="totalRequestsCount">
+              <h2>PENDING REQUESTS</h2>
+              <z class="smolpara"><%= pendingCount %></z>
+            </div>
+            <div class="bgroup" id="approvedReqsCount">
+              <h2>APPROVED REQS</h2>
+              <z class="smolpara"><%= approvedCount %></z>
+            </div>
+            <div class="bgroup" id="totalUnitsCount">
+              <h2>REJECTED REQS</h2>
+              <z class="smolpara" id="totalUnits"><%= rejectedCount %></z>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

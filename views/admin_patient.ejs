@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>admin to patient panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="budy">
+    <div class="red_nav"><h2>BEING POSITIVE</h2> 
+    <a
+        class="logs"
+        id="logoutButton"
+        href="/api/v1/signout"
+        style="background-color: rgb(191, 32, 32); color:white; padding:5px; margin-bottom:5px;"
+        >LOGOUT</a
+      ></div>
+    <div class="bodf">
+    <div class="leftz">
+        <ul>
+            <li><a href="/Ahome">HOME</li></a>
+            <li ><a href="/adminD">DONOR</li></a>
+            <li style="background: bisque; color:#1e1e25;"><a href="#">PATIENT</li></a>
+            <li><a href="/adminDR">DONATIONS</li></a>
+            <li><a href="/adminPR">BLOOD REQUESTS</li></a>
+
+        </ul>
+    </div>
+    <div class="rightz">
+        <h1 style="font-size:xx-large; margin-left:120px; margin-top:65px;">PATIENT DETAILS</h1>
+        <table class="donor_dets">
+        <thead>
+          <tr>
+            <th>NAME</th>
+            <th>BLOOD GROUP</th>
+            <th>ADDRESS</th>
+            <th>MOBILE</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% donors.forEach(donor => { %>
+      <tr>
+        <td><%= donor.name %></td>
+        <td><%= donor.bloodGroup %></td>
+        <td><%= donor.address %></td>
+        <td><%= donor.phone %></td>
+        <td>
+          <form action="/api/v1/delete-patient" method="post">
+            <input type="hidden" name="donorId" value="<%= donor._id %>">
+            <button type="submit" style="background-color: #aa3b04; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }); %>   
+        </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

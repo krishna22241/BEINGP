@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>admin to donoations panel</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="budy">
+    <div class="red_nav"><h2>BEING POSITIVE</h2>    <a
+      class="logs"
+      id="logoutButton"
+      href="/api/v1/signout"
+      style="background-color: rgb(191, 32, 32); color:white; padding:5px; margin-bottom:5px;"
+      >LOGOUT</a
+    ></div>
+      </div>
+    <div class="bodf">
+    <div class="leftz">
+        <ul>
+            <li><a href="/Ahome">HOME</li></a>
+            <li><a href="/adminD">DONOR</li></a>
+            <li><a href="/adminP">PATIENT</li></a>
+            <li><a href="/adminDR">DONATIONS</li></a>
+            <li  style="background: bisque; color:#1e1e25;"><a href="#">BLOOD REQUESTS</li></a>
+        
+        </ul>
+    </div>
+    <div class="rightz">
+        <h1 style="font-size:xx-large; margin-left:120px; margin-top:65px;">BLOOD REQUESTS</h1>
+        <table class="donor_dets">
+        <thead>
+          <tr>
+            <th>NAME</th>
+            <th>BLOOD GROUP</th>
+            <th>QUANTITY</th>
+            <th>REASON</th>
+            <th>STATUS</th>
+            <th>DATE</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        <%  for(let i=0;i<patientRequests.length;i++){ %>
+          <tr>
+            <td><%=patientRequests[i].patientName%></td>
+            <td><%=patientRequests[i].patientBloodGroup%></td>
+            <td><%=patientRequests[i].requestQuantity%></td>
+            <td><%=patientRequests[i].requestReason%></td>
+            <td><%=patientRequests[i].requestStatus%></td>
+            <td><%=patientRequests[i].requestDate%></td>
+            <td>
+              <% if (patientRequests[i].requestStatus === 'pending') { %>
+                  <form action="/api/v1/change-patient-req-status" method="post" style="display:inline;">
+                      <input type="hidden" name="patientId" value="<%= patientRequests[i].patientId %>">
+                      <input type="hidden" name="PatientReqId" value="<%= patientRequests[i].PatientReqId %>">
+                      <input type="hidden" name="status" value="approved">
+                      <button type="submit" style="background-color: #aa3b04; border: none; color: white; padding: 10px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; transition-duration: 0.4s; cursor: pointer;">Approve</button>
+                  </form>
+                  <form action="/api/v1/reject-patient-status" method="post" style="display:inline;">
+                      <input type="hidden" name="patientId" value="<%= patientRequests[i].patientId %>">
+                      <input type="hidden" name="PatientReqId" value="<%= patientRequests[i].PatientReqId %>">
+                      <input type="hidden" name="status" value="rejected">
+                      <button type="submit" style="background-color: #aa3b04; border: none; color: white; padding: 10px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; transition-duration: 0.4s; cursor: pointer;">Reject</button>
+                  </form>
+              <% } else if (patientRequests[i].requestStatus === 'approved') { %>
+                  <button style="background-color: #aaa; border: none; color: white; padding: 10px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: not-allowed;">Approved</button>
+              <% } else if (patientRequests[i].requestStatus === 'rejected') { %>
+                  <button style="background-color: #aaa; border: none; color: white; padding: 10px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: not-allowed;">Rejected</button>
+              <% } %>
+          </td>
+
+          </tr>
+          <%}%>    
+        </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

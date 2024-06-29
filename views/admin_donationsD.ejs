@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Donations Panel</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="budy">
+    <div class="red_nav">
+        <h2>BEING POSITIVE</h2>
+        <a class="logs" id="logoutButton" href="/api/v1/signout" style="background-color: rgb(191, 32, 32); color:white; padding:5px; margin-bottom:5px;">LOGOUT</a>
+    </div>
+    <div class="bodf">
+        <div class="leftz">
+            <ul>
+                <li><a href="/Ahome">HOME</a></li>
+                <li><a href="/adminD">DONOR</a></li>
+                <li><a href="/adminP">PATIENT</a></li>
+                <li style="background: bisque; color:#1e1e25;"><a href="#">DONATIONS</a></li>
+                <li><a href="/adminPR">BLOOD REQUESTS</a></li>
+            </ul>
+        </div>
+        <div class="rightz">
+            <h1 style="font-size:xx-large; margin-left:120px; margin-top:65px;">DONATIONS</h1>
+            <table class="donor_dets">
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>BLOOD GROUP</th>
+                        <th>QUANTITY</th>
+                        <th>DISEASE</th>
+                        <th>STATUS</th>
+                        <th>DATE</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% donorRequests.forEach((request, index) => { %>
+                        <tr>
+                            <td><%= request.donorName %></td>
+                            <td><%= request.donorBloodGroup %></td>
+                            <td><%= request.donationQuantity %></td>
+                            <td><%= request.donationDisease %></td>
+                            <td><%= request.donationStatus %></td>
+                            <td><%= request.donationDate %></td>
+                            <td>
+                                <% if (request.donationStatus === 'pending') { %>
+                                    <form action="/api/v1/change-status" method="post" style="display:inline;">
+                                        <input type="hidden" name="donorId" value="<%= request.donorId %>">
+                                        <input type="hidden" name="donationId" value="<%= request.donationId %>">
+                                        <input type="hidden" name="status" value="approved">
+                                        <button type="submit" style="background-color: #aa3b04; border: none; color: white; padding: 10px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; transition-duration: 0.4s; cursor: pointer;">Approve</button>
+                                    </form>
+                                    <form action="/api/v1/reject-status" method="post" style="display:inline;">
+                                        <input type="hidden" name="donorId" value="<%= request.donorId %>">
+                                        <input type="hidden" name="donationId" value="<%= request.donationId %>">
+                                        <input type="hidden" name="status" value="rejected">
+                                        <button type="submit" style="background-color: #aa3b04; border: none; color: white; padding: 10px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; transition-duration: 0.4s; cursor: pointer;">Reject</button>
+                                    </form>
+                                <% } else if (request.donationStatus === 'approved') { %>
+                                    <button style="background-color: #aaa; border: none; color: white; padding: 10px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: not-allowed;">Approved</button>
+                                <% } else if (request.donationStatus === 'rejected') { %>
+                                    <button style="background-color: #aaa; border: none; color: white; padding: 10px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: not-allowed;">Rejected</button>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+ 

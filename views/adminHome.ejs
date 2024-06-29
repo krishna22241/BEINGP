@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>admin home</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      
+      input[type="number"] {
+        width: 90px; 
+        height: 40px; 
+        border: 1px solid white;
+        outline: white;
+      }
+      .bgroup button {
+        margin: 0 auto;
+        display: block;
+        margin-top: 5px;
+        margin-left: 120px;
+      }
+      .rightz .dowwns .bgroup {
+        width: 30%;
+        text-align: center;
+      }
+      .rightz .dowwns .bgroup .smolpara {
+        padding-left: 0px;
+      }
+      .rightz .upps .bgroup {
+        width: 10%;
+      }
+    </style>
+  </head>
+  <body class="budy">
+    <div class="red_nav">
+      <h2>BEING POSITIVE</h2>
+      <a
+      class="logs"
+      id="logoutButton"
+      href="/api/v1/signout"
+      style="background-color: rgb(191, 32, 32); color:white; padding:5px; margin-bottom:5px;"
+      >LOGOUT</a
+    ></div>
+    </div>
+    <div class="bodf">
+      <div class="leftz">
+        <ul>
+          <li style="background: bisque; color: #1e1e25">
+            <a href="#">HOME</a>
+          </li>
+          <li><a href="/adminD">DONOR</a></li>
+          <li><a href="/adminP">PATIENT</a></li>
+          <li><a href="/adminDR">DONATIONS</a></li>
+          <li><a href="/adminPR">BLOOD REQUESTS</a></li>
+        </ul>
+      </div>
+      <div class="rightz">
+        <div class="upps">
+          <div class="onef">
+            <% Object.keys(bloodTypeQuantities).forEach(bloodType => { %>
+            <div class="bgroup" id="<%= bloodType.toLowerCase() %>Count">
+              <h2>
+                <%= bloodType %>
+                <img src="blood-drop-png-2.png" style="width: 28%" />
+              </h2>
+              <z class="smolpara" id="<%= bloodType.toLowerCase() %>Units"
+                ><%= bloodTypeQuantities[bloodType] %> units</z
+              >
+            </div>
+            <% }); %>
+          </div>
+        </div>
+        <hr style="width: 72%; margin-left: 200px" />
+        <div class="dowwns">
+          <div class="onef">
+            <div class="bgroup" id="totalDonorsCount">
+              <h2>TOTAL DONORS</h2>
+              <z class="smolpara"><%=totalDonor%></z>
+            </div>
+            <div class="bgroup" id="totalRequestsCount">
+              <h2>TOTAL REQUESTS</h2>
+              <z class="smolpara"><%= total %></z>
+            </div>
+            <div class="bgroup" id="approvedReqsCount">
+              <h2>APPROVED REQS</h2>
+              <z class="smolpara"><%= totalapp %></z>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+  </body>
+</html>
